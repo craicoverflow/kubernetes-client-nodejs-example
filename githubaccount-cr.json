@@ -1,0 +1,14 @@
+{
+    "apiVersion": "craicoverflow.github.io/v1",
+    "kind": "GitHubAccount",
+    "metadata": {
+        "name": "craicoverflow"
+    },
+    "spec": {
+        "login": "craicoverflow",
+        "blog": "https://endaphelan.me",
+        "bio": "// TODO: Add a bio",
+        "type": "User",
+        "public_repos": "52"
+    }
+}

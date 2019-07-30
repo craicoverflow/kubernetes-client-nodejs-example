@@ -1,0 +1,124 @@
+{
+    "apiVersion": "apps.openshift.io/v1",
+    "kind": "DeploymentConfig",
+    "metadata": {
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftWebConsole"
+        },
+        "creationTimestamp": "2019-07-30T10:37:50Z",
+        "generation": 2,
+        "labels": {
+            "app": "nodejs-ex"
+        },
+        "name": "nodejs-ex",
+        "namespace": "myproject",
+        "resourceVersion": "13880",
+        "selfLink": "/apis/apps.openshift.io/v1/namespaces/myproject/deploymentconfigs/nodejs-ex",
+        "uid": "147abdae-b2b6-11e9-ae6f-525400402b2f"
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "deploymentconfig": "nodejs-ex"
+        },
+        "strategy": {
+            "activeDeadlineSeconds": 21600,
+            "resources": {},
+            "rollingParams": {
+                "intervalSeconds": 1,
+                "maxSurge": "25%",
+                "maxUnavailable": "25%",
+                "timeoutSeconds": 600,
+                "updatePeriodSeconds": 1
+            },
+            "type": "Rolling"
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "nodejs-ex",
+                    "deploymentconfig": "nodejs-ex"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "172.30.1.1:5000/myproject/nodejs-ex@sha256:2f853287f4cdd52141fc021c9b2790ee4ca4a9238abbfbd653b11a79fe9eba9a",
+                        "imagePullPolicy": "Always",
+                        "name": "nodejs-ex",
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File"
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "terminationGracePeriodSeconds": 30
+            }
+        },
+        "test": false,
+        "triggers": [
+            {
+                "imageChangeParams": {
+                    "automatic": true,
+                    "containerNames": [
+                        "nodejs-ex"
+                    ],
+                    "from": {
+                        "kind": "ImageStreamTag",
+                        "name": "nodejs-ex:latest",
+                        "namespace": "myproject"
+                    },
+                    "lastTriggeredImage": "172.30.1.1:5000/myproject/nodejs-ex@sha256:2f853287f4cdd52141fc021c9b2790ee4ca4a9238abbfbd653b11a79fe9eba9a"
+                },
+                "type": "ImageChange"
+            },
+            {
+                "type": "ConfigChange"
+            }
+        ]
+    },
+    "status": {
+        "availableReplicas": 1,
+        "conditions": [
+            {
+                "lastTransitionTime": "2019-07-30T10:38:09Z",
+                "lastUpdateTime": "2019-07-30T10:38:09Z",
+                "message": "Deployment config has minimum availability.",
+                "status": "True",
+                "type": "Available"
+            },
+            {
+                "lastTransitionTime": "2019-07-30T10:38:08Z",
+                "lastUpdateTime": "2019-07-30T10:38:10Z",
+                "message": "replication controller \"nodejs-ex-1\" successfully rolled out",
+                "reason": "NewReplicationControllerAvailable",
+                "status": "True",
+                "type": "Progressing"
+            }
+        ],
+        "details": {
+            "causes": [
+                {
+                    "type": "ConfigChange"
+                }
+            ],
+            "message": "config change"
+        },
+        "latestVersion": 1,
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "unavailableReplicas": 0,
+        "updatedReplicas": 1
+    }
+}

@@ -5,11 +5,12 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "deployments": "node deployments.js",
+    "crds": "node crds.js"
   },
   "author": "Enda Phelan",
   "license": "ISC",
   "dependencies": {
-    "kubernetes-client": "^8.3.3"
+    "kubernetes-client": "8.3.3"
   }
 }

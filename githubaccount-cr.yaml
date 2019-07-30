@@ -1,0 +1,10 @@
+apiVersion: craicoverflow.github.io/v1
+kind: GitHubAccount
+metadata:
+  name: testuser
+spec:
+  bio: ''
+  blog: https://example.com
+  login: testuser
+  public_repos: "100"
+  type: User
