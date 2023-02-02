@@ -11,6 +11,6 @@
   "author": "Enda Phelan",
   "license": "ISC",
   "dependencies": {
-    "kubernetes-client": "8.3.3"
+    "kubernetes-client": "8.3.7"
   }
 }
